@@ -6,7 +6,7 @@ import chalk from 'chalk';
 // @ts-ignore
 import { Linter } from 'eslint';
 // @ts-ignore
-import openapiEslintPlugin from 'eslint-plugin-openapi';
+import openapiEslintPlugin from '../eslint-plugin-openapi';
 
 import parseFile from './util/parseFile';
 import globList from './util/globList';
@@ -89,7 +89,7 @@ function parseComments(options: ParserOptions = {}): OpenApiObject {
 		if (throwLevel === 'error' && errorCount > 0) {
 			throw new Error(
 				`openapi-comment-parser: Found ${errorCount} problem${
-					errorCount > 1 ? 's' : ''
+				errorCount > 1 ? 's' : ''
 				}.`
 			);
 		}
@@ -99,7 +99,7 @@ function parseComments(options: ParserOptions = {}): OpenApiObject {
 		) {
 			throw new Error(
 				`openapi-comment-parser: Found ${problemCount} problem${
-					problemCount > 1 ? 's' : ''
+				problemCount > 1 ? 's' : ''
 				}.`
 			);
 		}
@@ -132,6 +132,8 @@ function parseComments(options: ParserOptions = {}): OpenApiObject {
 			console.log();
 		}
 	}
+
+	spec.resolveResponseGroups()
 
 	return spec;
 }

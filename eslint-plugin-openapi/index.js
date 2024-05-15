@@ -14,6 +14,7 @@ const tagToName = {
   pathParam: 'parameter name',
   bodyContent: 'content-type',
   security: 'security scheme name',
+  responseGroup: 'response group',
 };
 
 const openAPIRegex = /^(GET|PUT|POST|DELETE|OPTIONS|HEAD|PATCH|TRACE) \/.*$/;
@@ -83,6 +84,7 @@ function parseErrors(comment, jsDocComment, context) {
         case 'pathParam':
         case 'bodyContent':
         case 'security':
+        case 'responseGroup':
           if (!tag.name) {
             missing(context, comment, tag, tagToName[tag.tag]);
           }
@@ -226,7 +228,7 @@ function parseErrors(comment, jsDocComment, context) {
 
 function parse(comment, jsDocComment, context) {
   if (openAPIRegex.test(jsDocComment.description)) {
-    const [method, path] = jsDocComment.description.split(' ');
+    const [method] = jsDocComment.description.split(' ');
 
     if (
       !jsDocComment.tags.find(
@@ -276,6 +278,7 @@ function parse(comment, jsDocComment, context) {
         case 'response':
         case 'bodyComponent':
         case 'paramComponent':
+        case 'responseGroup':
           if (tag.type) {
             context.report({
               loc: {
@@ -393,7 +396,7 @@ function getComments(cb) {
 module.exports = {
   rules: {
     errors: {
-      create: function (context) {
+      create: function(context) {
         return getComments((comment, jsDocComment) => {
           parseErrors(comment, jsDocComment, context);
         });

@@ -279,6 +279,14 @@ function tagsToObjects(tags: any[], verbose?: boolean) {
 				};
 			}
 
+			case 'responseGroup': {
+				return {
+					responseGroups: [{
+						$ref: `#/components/responseGroups/${parsedResponse.name}`,
+					}],
+				};
+			}
+
 			case 'responseLink': {
 				const [status, link] = parsedResponse.name.split('.');
 				return {

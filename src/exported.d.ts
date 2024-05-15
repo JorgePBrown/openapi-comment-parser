@@ -71,6 +71,7 @@ export interface ComponentsObject {
 	>;
 	links?: Map<LinkObject | ReferenceObject>;
 	callbacks?: Map<CallbackObject | ReferenceObject>;
+	responseGroups?: Map<ResponseGroupObject>;
 }
 
 export interface PathsObject {
@@ -95,6 +96,7 @@ export interface PathItemObject {
 
 export interface OperationObject {
 	responses: ResponsesObject;
+	responseGroups?: ReferenceObject[];
 	tags?: string[];
 	summary?: string;
 	description?: string;
@@ -261,6 +263,8 @@ export interface OAuthFlowObject {
 export interface SecurityRequirementObject {
 	[name: string]: string[];
 }
+
+export type ResponseGroupObject = Map<ResponseObject>
 
 export interface Map<T> {
 	[key: string]: T;

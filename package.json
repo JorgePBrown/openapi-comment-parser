@@ -1,6 +1,9 @@
 {
-  "name": "openapi-comment-parser",
-  "version": "0.0.18",
+  "name": "@moovit-sp-gmbh/openapi-comment-parser",
+  "version": "1.0.0",
+  "publishConfig": {
+      "registry": "https://npm.pkg.github.com"
+  },
   "engines": {
     "node": ">=10.0.0"
   },
@@ -9,13 +12,13 @@
   },
   "license": "MIT",
   "description": "JSDoc Comments for the OpenApi Specification",
-  "homepage": "https://github.com/bee-travels/openapi-comment-parser",
+  "homepage": "https://github.com/moovit-sp-gmbh/openapi-comment-parser",
   "repository": {
     "type": "git",
-    "url": "git://github.com/bee-travels/openapi-comment-parser.git"
+    "url": "git+https://github.com/moovit-sp-gmbh/openapi-comment-parser.git"
   },
   "bugs": {
-    "url": "https://github.com/bee-travels/openapi-comment-parser/issues"
+    "url": "https://github.com/moovit-sp-gmbh/openapi-comment-parser/issues"
   },
   "keywords": [
     "openapi",

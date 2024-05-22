@@ -134,6 +134,7 @@ function parseComments(options: ParserOptions = {}): OpenApiObject {
 	}
 
 	spec.resolveResponseGroups()
+	delete spec.components?.responseGroups;
 
 	return spec;
 }
